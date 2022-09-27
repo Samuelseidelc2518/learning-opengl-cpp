@@ -13,11 +13,10 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 Window::Window() {
 	// initialize the background color variables rgba
-	this->bgColor[0] = 1.0f;
-	this->bgColor[1] = 1.0f;
-	this->bgColor[2] = 1.0f;
+	this->bgColor[0] = 0.07f;
+	this->bgColor[1] = 0.13f;
+	this->bgColor[2] = 0.17f;
 	this->bgColor[3] = 1.0f;
-
 	// Set error callback for GFLW
 	glfwSetErrorCallback(error_callback);
 
@@ -52,7 +51,7 @@ Window::Window() {
 
 }
 
-void Window::setBgColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a)
+Window& Window::setBgColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a)
 {
 	// set the background color variables rgba
 	this->bgColor[0] = r;
@@ -64,9 +63,10 @@ void Window::setBgColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a)
 	glClearColor(this->bgColor[0], this->bgColor[1], this->bgColor[2], this->bgColor[3]);
 	// Clean the back buffer and assign the new color to it
 	glClear(GL_COLOR_BUFFER_BIT);
+	return *this;
 }
 
-void Window::activateResize() {
+Window& Window::activateResize() {
 
 	// create the width and height variables for resize window
 	int width, height;
@@ -75,16 +75,19 @@ void Window::activateResize() {
 	glfwGetFramebufferSize(window, &width, &height);
 	// set viewport of the gl with the new window sizes
 	glViewport(0, 0, width, height);
+	return *this;
 }
 
-void Window::swapBuffers() {
+Window& Window::swapBuffers() {
 	// Swap the back buffer with the front buffer
 	glfwSwapBuffers(window);
+	return *this;
 }
 
-void Window::Eliminate() {
+Window& Window::Eliminate() {
 	// Delete window before ending the program
 	glfwDestroyWindow(window);
 	// Terminate GLFW before ending the program
 	glfwTerminate();
+	return *this;
 }

@@ -14,11 +14,11 @@ class Window
 
 		Window();
 
-		void setBgColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
-		void activateResize();
-		void Eliminate();
-		void swapBuffers();
-		void useUniform();
+		Window& setBgColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
+		Window& activateResize();
+		Window& Eliminate();
+		Window& swapBuffers();
+		Window& useUniform();
 };
 
 #endif

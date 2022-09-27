@@ -6,12 +6,14 @@
 #include"VAO.h"
 #include"VBO.h"
 #include"EBO.h"
+#include"Texture.h"
 
 class Triangle
 {
 
 	public:
 		Shader* program;
+		Texture* popCat;
 		VAO* VAO1;
 		VBO* VBO1;
 		EBO* EBO1;
