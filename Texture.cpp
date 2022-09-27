@@ -27,7 +27,7 @@ Texture::Texture(const char* image, GLenum textType, GLenum slot, GLenum format,
 
 }
 
-void Texture::texUnit(Shader shader, const char* uniform, GLuint unit) {
+void Texture::texUnit(Shader& shader, const char* uniform, GLuint unit) {
 	// get the uniform tex0 from the fragment
 	GLuint tex0Uni = glGetUniformLocation(shader.ID, "tex0");
 	// Activate the shader program

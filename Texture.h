@@ -18,7 +18,7 @@ public:
 	// Contruct the texture with the image path
 	Texture(const char* image, GLenum textType, GLenum slot, GLenum format, GLenum pixelType);
 	// set the uniform variable from the fragment of the shader to unit
-	void texUnit(Shader shader, const char* uniform, GLuint unit);
+	void texUnit(Shader& shader, const char* uniform, GLuint unit);
 
 	void Bind();
 	void Unbind();
