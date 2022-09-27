@@ -14,12 +14,12 @@ const GLfloat innerMiddleY = 0.5f * float(sqrt(3)) / 6; // inner middle in Y axi
 GLfloat vertices[] =
 {
 	//			Coodinates				 	/		Colors				/	Description
-		leftX,		bottomY,		0.0f,		0.8f, 0.3f, 0.02f,		// Lower left corner
-		rightX,		bottomY,		0.0f,		0.8f, 0.3f, 0.02f,		// Lower right corner
-		middle,		topY,			0.0f,		1.0f, 0.6f, 0.32f,		// Upper middle corner
-		leftX / 2,	innerMiddleY,	0.0f,		0.9f, 0.45f, 0.17f,		// Inner left
-		rightX / 2, innerMiddleY,	0.0f,		0.9f, 0.45f, 0.17f,		// Inner right
-		middle,		bottomY,		0.0f,		0.8f, 0.3f, 0.02f,		// Inner down
+		leftX,		bottomY,		0.0f,		0.13f, 0.26f, 0.53f,		// Lower left corner
+		rightX,		bottomY,		0.0f,		0.13f, 0.26f, 0.53f,		// Lower right corner
+		middle,		topY,			0.0f,		0.13f, 0.26f, 0.53f,		// Upper middle corner
+		leftX / 2,	innerMiddleY,	0.0f,		0.13f, 0.26f, 0.53f,		// Inner left
+		rightX / 2, innerMiddleY,	0.0f,		0.13f, 0.26f, 0.53f,		// Inner right
+		middle,		bottomY,		0.0f,		0.13f, 0.26f, 0.53f,		// Inner down
 };
 
 // Selection of indices of the vertices array to know which vertices use for each triangle
@@ -60,10 +60,14 @@ Triangle::Triangle() {
 
 }
 
-void Triangle::render() {
+void Triangle::render(float multiple) {
+
 	program->Activate();
-	glUniform1f(uniID, 0.5f);
+
+	glUniform1f(uniID, multiple);
+
 	VAO1->Bind();
+	// Draw the triangles using the GL_TRIANGLES primitive and the number of vertices
 	glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 }
 

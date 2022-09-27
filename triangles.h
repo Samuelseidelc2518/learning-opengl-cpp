@@ -19,7 +19,7 @@ class Triangle
 
 		Triangle();
 
-		void render();
+		void render(float multiple);
 		void clean();
 	private:
 
